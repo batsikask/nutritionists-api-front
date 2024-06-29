@@ -1,0 +1,74 @@
+<div class="container">
+    <form [formGroup]="form" class="d-flex flex-column justify-content-start gap-2 mt-2">
+
+                
+        <div>
+            <mat-form-field class="date">
+                <mat-label>Date</mat-label>
+                <input matInput type="date" formControlName="date" placeholder="Date">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Diet</mat-label>
+                <textarea matInput formControlName="diet" placeholder="Diet"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Weight Goal</mat-label>
+                <input matInput type="number" formControlName="weight_goal" placeholder="Weight Goal">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Activity Level</mat-label>
+                <input matInput type="number" formControlName="activity_level" placeholder="Activity Level">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>Preferred Foods</mat-label>
+                <textarea matInput formControlName="preffered_foods" placeholder="Preferred Foods"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Disliked Foods</mat-label>
+                <textarea matInput formControlName="disliked_foods" placeholder="Disliked Foods"></textarea>
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <mat-form-field>
+                <mat-label>Carbohydrates</mat-label>
+                <input matInput type="number" formControlName="carbohydrates" placeholder="Carbohydrates">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Protein</mat-label>
+                <input matInput type="number" formControlName="protein" placeholder="Protein">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <mat-label>Fat</mat-label>
+                <input matInput type="number" formControlName="fat" placeholder="Fat">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Comments</mat-label>
+                <textarea matInput formControlName="comments" placeholder="Comments"></textarea>
+            </mat-form-field>
+        </div>
+    
+        <div class="d-flex justify-content-end gap-2 mt-3">
+            <button mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid">Submit</button>
+            <button mat-raised-button color="warn" (click)="form.reset()">Reset</button>
+        </div>
+    </form>
+</div>

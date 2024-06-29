@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark bg-secondary justify-content-evenly">
+    <a role="button" class="navbar-brand ms-3" routerLink=""> Nutritionists API </a>
+    <a role="button" class="navbar-brand ms-3" routerLink="/home"> Home </a>
+    <a role="button" class="navbar-brand ms-3" routerLink="/about"> About </a>
+    @if (user()) {
+        <span class="me-3 d-flex gap-2 text-light "> 
+            @switch (user().role) {
+                @case ('Staff') {
+                    {{ staffUser()?.username }}
+                }
+                @case ('Nutritionist') {
+                    {{ nutritionistUser()?.first_name }}
+                }
+                @case ('NormalUser') {
+                    {{ normalUser()?.first_name }}
+                }
+                @default {
+                    Not loaded
+                }
+            }
+            <mat-icon role="button" (click)="logout()">logout</mat-icon>
+        </span>
+    } @else {
+        <a role="button" class="navbar-brand ms-3" routerLink="/login" [routerLinkActive]="['active']"> Login </a>
+    }
+  </nav>

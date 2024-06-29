@@ -1,0 +1,15 @@
+@if (user) {
+    <div class="d-flex flex-row gap-2">
+      @switch (userRole) {
+        @case ('NormalUser') {
+          <app-normal-user-menu></app-normal-user-menu>
+        }
+        @case ('Nutritionist') {
+          <app-nutritionist-menu></app-nutritionist-menu>
+        }
+        @case ('Staff') {
+          <app-staff-menu></app-staff-menu>
+        }
+      }
+    </div>
+  }

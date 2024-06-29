@@ -1,0 +1,22 @@
+@if(isEditMode() === false) {
+    <div class="d-flex justify-content-between ">
+        <mat-list class="ms-3">
+            <mat-list-item>Trunk Muscle: {{ segmentalBodyMeasurement.trunk_muscle }}</mat-list-item>
+            <mat-list-item>Left Arm Muscle: {{ segmentalBodyMeasurement.left_arm_muscle }}</mat-list-item>
+            <mat-list-item>Right Arm Muscle: {{ segmentalBodyMeasurement.right_arm_muscle }}</mat-list-item>
+            <mat-list-item>Left Leg Muscle: {{ segmentalBodyMeasurement.left_leg_muscle }}</mat-list-item>
+            <mat-list-item>Right Leg Muscle: {{ segmentalBodyMeasurement.right_leg_muscle }}</mat-list-item>
+            <mat-list-item>Trunk Fat: {{ segmentalBodyMeasurement.trunk_fat }}</mat-list-item>
+            <mat-list-item>Left Arm Fat: {{ segmentalBodyMeasurement.left_arm_fat }}</mat-list-item>
+            <mat-list-item>Right Arm Fat: {{ segmentalBodyMeasurement.right_arm_fat }}</mat-list-item>
+            <mat-list-item>Left Leg Fat: {{ segmentalBodyMeasurement.left_leg_fat }}</mat-list-item>
+            <mat-list-item>Right Leg Fat: {{ segmentalBodyMeasurement.right_leg_fat }}</mat-list-item>
+        </mat-list>
+        <div class="align-self-end">
+            <button mat-raised-button color="primary" class="px-4" (click)="enableEditMode()" routerLink="edit"> Edit <mat-icon>edit</mat-icon></button>
+            <button mat-raised-button color="warn" class="ms-2" (click)="openConfirmationDialog(segmentalBodyMeasurement.id)"> Delete <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+} @else {
+    <app-nutritionist-client-segmental-body-measurement-edit [segmentalBodyMeasurement]="segmentalBodyMeasurement" [isEditMode]="isEditMode"></app-nutritionist-client-segmental-body-measurement-edit>
+}

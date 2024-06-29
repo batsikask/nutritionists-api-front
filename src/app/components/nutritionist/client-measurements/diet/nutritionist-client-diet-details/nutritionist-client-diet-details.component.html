@@ -1,0 +1,21 @@
+@if (isEditMode() === false) {
+    <div class="d-flex justify-content-between ">
+        <mat-list class="ms-3">
+            <mat-list-item>Preferred Foods: {{ diet.preffered_foods }}</mat-list-item>
+            <mat-list-item>Disliked Foods: {{ diet.disliked_foods }}</mat-list-item>
+            <mat-list-item>Activity Level: {{ diet.activity_level }}</mat-list-item>
+            <mat-list-item>Weight Goal: {{ diet.weight_goal }}</mat-list-item>
+            <mat-list-item>Fat: {{ diet.fat }}</mat-list-item>
+            <mat-list-item>Protein: {{ diet.protein }}</mat-list-item>
+            <mat-list-item>Carbohydrates: {{ diet.carbohydrates }}</mat-list-item>
+            <mat-list-item>Diet: {{ diet.diet }}</mat-list-item>
+            <mat-list-item>Comments: {{ diet.comments }}</mat-list-item>
+        </mat-list>
+        <div class="align-self-end">
+            <button mat-raised-button color="primary" class="px-4" (click)="enableEditMode()" routerLink="edit"> Edit <mat-icon>edit</mat-icon></button>
+            <button mat-raised-button color="warn" class="ms-2" (click)="openConfirmationDialog(diet.id)"> Delete <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+} @else {
+    <app-nutritionist-client-diet-edit [diet]="diet" [isEditMode]="isEditMode"></app-nutritionist-client-diet-edit>
+}

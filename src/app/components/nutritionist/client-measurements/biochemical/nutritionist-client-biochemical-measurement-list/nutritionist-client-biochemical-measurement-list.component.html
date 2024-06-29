@@ -1,0 +1,24 @@
+@if (biochemicalMeasurementsExist() === false) {
+    <div class="text-center">
+        <p>No biochemical measurements found.</p>
+        <button mat-raised-button color="primary" class="px-4" (click)="biochemicalMeasurementsExist.set(true)"> Create <mat-icon>add</mat-icon></button>    
+    </div>
+} @else {
+    <mat-tab-group dynamicHeight animationDuration="1000ms" mat-stretch-tabs="false">
+        <mat-tab>
+            <ng-template mat-tab-label>
+              <button mat-icon-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </ng-template>
+            <app-nutritionist-client-biochemical-measurement-form></app-nutritionist-client-biochemical-measurement-form>
+          </mat-tab>
+        @for(bm of biochemicalMeasurements(); track bm) {
+            <div class="container d-flex flex-column">
+                <mat-tab label="{{ bm.date }}">
+                    <app-nutritionist-client-biochemical-measurement-details [biochemicalMeasurement]="bm"></app-nutritionist-client-biochemical-measurement-details>
+                </mat-tab>
+            </div>
+        }
+    </mat-tab-group>
+}

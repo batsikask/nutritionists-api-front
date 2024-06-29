@@ -1,0 +1,8 @@
+mat-form-field {
+  margin-right: 5px;
+}
+
+form > div {
+  display: flex;
+  justify-content: start;
+}

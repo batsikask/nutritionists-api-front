@@ -1,0 +1,28 @@
+<h4>User Login</h4>
+
+<form [formGroup]="form" class="d-flex flex-column gap-2 w-50">
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput type="text" formControlName="username" placeholder="cAse sEnsiTive">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid">Login</button>
+
+  <div>
+    <span>Not registered yet? Register 
+      <a role="button" class="fw-semibold" routerLink="/register"> here </a>
+    </span>
+  </div>
+
+  @if (invalidLogin) {
+    <div class="alert alert-danger">
+      <strong>Error:</strong> Invalid email or password.
+    </div>
+  }
+</form>

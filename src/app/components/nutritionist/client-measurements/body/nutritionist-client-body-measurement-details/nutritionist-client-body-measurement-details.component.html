@@ -1,0 +1,28 @@
+@if(isEditMode() === false) {
+    <div class="d-flex justify-content-between ">
+        <mat-list class="ms-3">
+            <mat-list-item>Weight: {{ bodyMeasurement.weight }}</mat-list-item>
+            <mat-list-item>Height: {{ bodyMeasurement.height }}</mat-list-item>
+            <mat-list-item>Age: {{ bodyMeasurement.age }}</mat-list-item>
+            <mat-list-item>BMR: {{bodyMeasurement.bodyMeasurementr }}</mat-list-item>
+            <mat-list-item>BMI: {{ bodyMeasurement.bodyMeasurementi }}</mat-list-item>
+            <mat-list-item>Body Fat % : {{ bodyMeasurement.body_fat_percentage }}</mat-list-item>
+            <mat-list-item>Body Fat Mass: {{ bodyMeasurement.body_fat_mass }}</mat-list-item>
+            <mat-list-item>Fat Free Mass: {{ bodyMeasurement.fat_free_mass }}</mat-list-item>
+            <mat-list-item>Muscle Mass: {{ bodyMeasurement.muscle_mass }}</mat-list-item>
+            <mat-list-item>Bone Mass: {{ bodyMeasurement.bone_mass }}</mat-list-item>
+            <mat-list-item>Body Water % : {{ bodyMeasurement.body_water_percentage }}</mat-list-item>
+            <mat-list-item>Body Water Weight: {{ bodyMeasurement.body_water_weight }}</mat-list-item>
+            <mat-list-item>Visceral Fat Level: {{ bodyMeasurement.visceral_fat_level }}</mat-list-item>
+            <mat-list-item>Metabolic Age: {{ bodyMeasurement.metabolic_age }}</mat-list-item>
+            <mat-list-item>Physical Activity: {{ bodyMeasurement.physical_activity_level }}</mat-list-item>
+            <mat-list-item>Physique Rating: {{ bodyMeasurement.physique_rating }}</mat-list-item>
+        </mat-list>
+        <div class="align-self-end">
+            <button mat-raised-button color="primary" class="px-4" (click)="enableEditMode(bodyMeasurement.id)"> Edit <mat-icon>edit</mat-icon></button>
+            <button mat-raised-button color="warn" class="ms-2" (click)="openConfirmationDialog(bodyMeasurement.id)"> Delete <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+} @else {
+    <app-nutritionist-client-body-measurement-edit [bodyMeasurement]="bodyMeasurement" [isEditMode]="isEditMode"></app-nutritionist-client-body-measurement-edit>
+}

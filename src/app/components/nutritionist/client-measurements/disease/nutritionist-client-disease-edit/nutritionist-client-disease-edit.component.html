@@ -1,0 +1,59 @@
+<div class="container">
+    <form [formGroup]="form" class="d-flex flex-column gap-3 mt-2">
+
+        <mat-form-field class="date">
+            <mat-label>Date</mat-label>
+            <input matInput formControlName="date" type="date">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Past Diseases</mat-label>
+            <textarea matInput formControlName="past_diseases"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Past Medications</mat-label>
+            <textarea matInput formControlName="past_medications"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Current Diseases</mat-label>
+            <textarea matInput formControlName="current_diseases"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Current Medications</mat-label>
+            <textarea matInput formControlName="current_medications"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Family History</mat-label>
+            <textarea matInput formControlName="family_history"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Allergies</mat-label>
+            <textarea matInput formControlName="allergies"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Dysanexias</mat-label>
+            <textarea matInput formControlName="dysanexias"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Food Restrictions</mat-label>
+            <textarea matInput formControlName="food_restrictions"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Comments</mat-label>
+            <textarea matInput formControlName="comments"></textarea>
+        </mat-form-field>
+        
+        <div class="d-flex justify-content-end gap-2 mt-3">
+            <button mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid">Submit</button>
+            <button mat-raised-button color="secondary" (click)="cancelEditMode()">Back</button>
+        </div>
+    </form>
+</div>

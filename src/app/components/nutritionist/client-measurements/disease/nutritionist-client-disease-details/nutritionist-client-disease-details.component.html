@@ -1,0 +1,21 @@
+@if(isEditMode() === false) {
+    <div class="d-flex justify-content-between">
+        <mat-list class="ms-3 text-start">
+            <mat-list-item>Past Diseases: {{ disease.past_diseases }}</mat-list-item>
+            <mat-list-item>Past Medications: {{ disease.past_medications }}</mat-list-item>
+            <mat-list-item>Current Diseases: {{ disease.current_diseases }}</mat-list-item>
+            <mat-list-item>Current Medications: {{ disease.current_medications }}</mat-list-item>
+            <mat-list-item>Family History: {{ disease.family_history }}</mat-list-item>
+            <mat-list-item>Allergies: {{ disease.allergies }}</mat-list-item>
+            <mat-list-item>Dysanexias: {{ disease.dysanexias }}</mat-list-item>
+            <mat-list-item>Food Restrictions: {{ disease.food_restrictions }}</mat-list-item>
+            <mat-list-item>Comments: {{ disease.comments }}</mat-list-item>
+        </mat-list>
+        <div class="align-self-end">
+            <button mat-raised-button color="primary" class="px-4" (click)="enableEditMode()" routerLink="edit"> Edit <mat-icon>edit</mat-icon></button>
+            <button mat-raised-button color="warn" class="ms-2" (click)="openConfirmationDialog(disease.id)"> Delete <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+} @else {
+    <app-nutritionist-client-disease-edit [disease]="disease" [isEditMode]="isEditMode"></app-nutritionist-client-disease-edit>
+ }

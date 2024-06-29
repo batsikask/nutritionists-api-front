@@ -1,0 +1,73 @@
+<div class="container">
+    <form [formGroup]="form" class="d-flex flex-column gap-2 mt-2">
+        <div>
+            <mat-form-field>
+                <mat-label>Date</mat-label>
+                <input matInput formControlName="date" placeholder="Date" type="date">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Trunk Muscle</mat-label>
+                <input matInput type="number" formControlName="trunk_muscle" placeholder="Trunk Muscle">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Left Arm Muscle</mat-label>
+                <input matInput type="number" formControlName="left_arm_muscle" placeholder="Left Arm Muscle">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Right Arm Muscle</mat-label>
+                <input matInput type="number" formControlName="right_arm_muscle" placeholder="Right Arm Muscle">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Left Leg Muscle</mat-label>
+                <input matInput type="number" formControlName="left_leg_muscle" placeholder="Left Leg Muscle">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Right Leg Muscle</mat-label>
+                <input matInput type="number" formControlName="right_leg_muscle" placeholder="Right Leg Muscle">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Trunk Fat</mat-label>
+                <input matInput type="number" formControlName="trunk_fat" placeholder="Trunk Fat">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Left Arm Fat</mat-label>
+                <input matInput type="number" formControlName="left_arm_fat" placeholder="Left Arm Fat">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Right Arm Fat</mat-label>
+                <input matInput type="number" formControlName="right_arm_fat" placeholder="Right Arm Fat">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <mat-label>Left Leg Fat</mat-label>
+                <input matInput type="number" formControlName="left_leg_fat" placeholder="Left Leg Fat">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Right Leg Fat</mat-label>
+                <input matInput type="number" formControlName="right_leg_fat" placeholder="Right Leg Fat">
+            </mat-form-field>
+        </div>
+        
+        <div class="d-flex justify-content-end gap-2 mt-3">
+            <button mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid">Submit</button>
+            <button mat-raised-button color="warn" (click)="form.reset()">Reset</button>
+        </div>
+    </form>
+</div>

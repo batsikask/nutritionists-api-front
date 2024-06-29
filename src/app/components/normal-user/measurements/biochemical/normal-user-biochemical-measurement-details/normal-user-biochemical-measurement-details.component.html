@@ -1,0 +1,49 @@
+
+@if(isEditMode() === false) {
+    <div class="d-flex justify-content-between">
+        <mat-list class="ms-3">
+            <mat-list-item>Glucose: {{ biochemicalMeasurement.glucose }}</mat-list-item>
+            <mat-list-item>Cholesterol: {{ biochemicalMeasurement.chlosterol }}</mat-list-item>
+            <mat-list-item>Triglycerides: {{ biochemicalMeasurement.triglycerides }}</mat-list-item>
+            <mat-list-item>HDL: {{ biochemicalMeasurement.hdl }}</mat-list-item>
+            <mat-list-item>LDL: {{ biochemicalMeasurement.ldl }}</mat-list-item>
+            <mat-list-item>Creatinine: {{ biochemicalMeasurement.creatinine }}</mat-list-item>
+            <mat-list-item>Urea: {{ biochemicalMeasurement.urea }}</mat-list-item>
+            <mat-list-item>Uric Acid: {{ biochemicalMeasurement.uric_acid }}</mat-list-item>
+            <mat-list-item>Hemoglobin: {{ biochemicalMeasurement.hemoglobin }}</mat-list-item>
+            <mat-list-item>Hematocrit: {{ biochemicalMeasurement.hematocrit }}</mat-list-item>
+            <mat-list-item>White Blood Cell Count: {{ biochemicalMeasurement.white_blood_cell_count }}</mat-list-item>
+            <mat-list-item>Red Blood Cell Count: {{ biochemicalMeasurement.red_blood_cell_count }}</mat-list-item>
+            <mat-list-item>Platelet Count: {{ biochemicalMeasurement.platelet_count }}</mat-list-item>
+            <mat-list-item>Calcium: {{ biochemicalMeasurement.calcium }}</mat-list-item>
+            <mat-list-item>Sodium: {{ biochemicalMeasurement.sodium }}</mat-list-item>
+            <mat-list-item>Potassium: {{ biochemicalMeasurement.potassium }}</mat-list-item>
+            <mat-list-item>Chloride: {{ biochemicalMeasurement.chloride }}</mat-list-item>
+            <mat-list-item>Iron: {{ biochemicalMeasurement.iron }}</mat-list-item>
+            <mat-list-item>Ferritin: {{ biochemicalMeasurement.ferritin }}</mat-list-item>
+            <mat-list-item>Alanine Aminotransferase: {{ biochemicalMeasurement.alanine_aminotransferase }}</mat-list-item>
+            <mat-list-item>Aspartate Aminotransferase: {{ biochemicalMeasurement.aspartate_aminotransferase }}</mat-list-item>
+            <mat-list-item>Alkaline Phosphatase: {{ biochemicalMeasurement.alkaline_phosphatase }}</mat-list-item>
+            <mat-list-item>Bilirubin: {{ biochemicalMeasurement.bilirubin }}</mat-list-item>
+            <mat-list-item>Albumin: {{ biochemicalMeasurement.albumin }}</mat-list-item>
+            <mat-list-item>Total Protein: {{ biochemicalMeasurement.total_protein }}</mat-list-item>
+            <mat-list-item>Thyroid Stimulating Hormone: {{ biochemicalMeasurement.thyroid_stimulating_hormone }}</mat-list-item>
+            <mat-list-item>Thyroxine: {{ biochemicalMeasurement.thyroxine }}</mat-list-item>
+            <mat-list-item>Triiodothyronine: {{ biochemicalMeasurement.triiodothyronine }}</mat-list-item>
+            <mat-list-item>C Reactive Protein: {{ biochemicalMeasurement.c_reactive_protein }}</mat-list-item>
+            <mat-list-item>Lactate Dehydrogenase: {{ biochemicalMeasurement.lactate_dehydrogenase }}</mat-list-item>
+            <mat-list-item>Vitamin A: {{ biochemicalMeasurement.vitamin_a }}</mat-list-item>
+            <mat-list-item>Vitamin B12: {{ biochemicalMeasurement.vitamin_b12 }}</mat-list-item>
+            <mat-list-item>Vitamin C: {{ biochemicalMeasurement.vitamin_c }}</mat-list-item>
+            <mat-list-item>Vitamin D: {{ biochemicalMeasurement.vitamin_d }}</mat-list-item>
+            <mat-list-item>Vitamin E: {{ biochemicalMeasurement.vitamin_e }}</mat-list-item>
+            <mat-list-item>Vitamin K: {{ biochemicalMeasurement.vitamin_k }}</mat-list-item>
+        </mat-list>
+        <div class="align-self-end">
+            <button mat-raised-button color="primary" class="px-4" (click)="enableEditMode()" routerLink="edit"> Edit <mat-icon>edit</mat-icon></button>
+            <button mat-raised-button color="warn" class="ms-2" (click)="openConfirmationDialog(biochemicalMeasurement.id)"> Delete <mat-icon>delete</mat-icon></button>
+        </div>
+    </div>
+} @else {
+    <app-normal-user-biochemical-measurement-edit [biochemicalMeasurement]="biochemicalMeasurement" [isEditMode]="isEditMode"></app-normal-user-biochemical-measurement-edit>
+}

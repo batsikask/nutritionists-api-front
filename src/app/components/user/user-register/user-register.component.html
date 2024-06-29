@@ -1,0 +1,67 @@
+<h4>User Registration</h4>
+
+@if(!(registrationStatus.success || registrationStatus.errors)) {
+
+<form [formGroup]="form" class="d-flex flex-column w-50">
+
+    <mat-form-field>
+        <mat-label> Username </mat-label>
+        <input matInput type="text" formControlName="username" />
+        @if(form.get('username').invalid && form.get('username').touched) {
+            <mat-error>Username is required</mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label> Email </mat-label>
+        <input matInput type="text" formControlName="email"/>
+        @if(form.get('email').hasError('duplicateEmail')) {
+            <mat-error>This email already exists</mat-error>
+        }
+        @if(form.get('email').invalid && form.get('email').touched) {
+            <mat-error>Email is missing or invalid</mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label> Password </mat-label>
+        <input matInput type="password" formControlName="password1" />
+        @if(form.get('password1').invalid && form.get('password1').touched) {
+            <mat-error>Password is missing or invalid</mat-error>
+        }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label> Confirm Password </mat-label>
+        <input matInput type="password" formControlName="password2" />
+        @if(form.get('password2').hasError('passwordMismatch')) {
+            <mat-error>Passwords do not match</mat-error>
+        }
+        @if(form.get('password2').invalid && form.get('password2').touched) {
+            <mat-error>Password confirm is required</mat-error>
+        }
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Are you a Nutritionist?</mat-label>
+        <mat-select formControlName="is_nutritionist">
+            <mat-option [value]="true">Yes</mat-option>
+            <mat-option [value]="false">No</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">Register</button>
+    @if (registrationStatus.errors){
+        @for (message of registrationStatus.message; track message;) {
+            <div class="alert alert-danger mt-2 w-50">
+                <strong> Error: </strong> {{ message }}
+            </div>
+        }
+    }
+</form>
+} @else {
+    @if (registrationStatus.success) {
+        <div class="alert alert-success mt-2 w-50">
+            <strong> Success: </strong> {{ registrationStatus.message }}
+            <button mat-flat-button color="primary" class="ms-3" routerLink="/login"> Continue </button>
+        </div>
+    } 
+}

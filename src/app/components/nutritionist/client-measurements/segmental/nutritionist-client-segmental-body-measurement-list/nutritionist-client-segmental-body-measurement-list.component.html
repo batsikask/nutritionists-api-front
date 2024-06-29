@@ -1,0 +1,25 @@
+
+@if (segmentalBodyMeasurementsExist() === false) {
+    <div class="text-center">
+        <p>No segmental body measurements found.</p>
+        <button mat-raised-button color="primary" class="px-4" (click)="segmentalBodyMeasurementsExist.set(true)"> Create <mat-icon>add</mat-icon></button>    
+    </div>
+} @else {
+    <mat-tab-group dynamicHeight animationDuration="1000ms" mat-stretch-tabs="false">
+        <mat-tab>
+            <ng-template mat-tab-label>
+              <button mat-icon-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </ng-template>
+            <app-nutritionist-client-segmental-body-measurement-form></app-nutritionist-client-segmental-body-measurement-form>
+          </mat-tab>
+        @for(sbm of segmentalBodyMeasurements(); track sbm) {
+            <div class="container d-flex flex-column">
+                <mat-tab label="{{ sbm.date }}">
+                    <app-nutritionist-client-segmental-body-measurement-details [segmentalBodyMeasurement]="sbm"></app-nutritionist-client-segmental-body-measurement-details>
+                </mat-tab>
+            </div>
+        }
+    </mat-tab-group>
+}

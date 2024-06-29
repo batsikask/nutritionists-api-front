@@ -1,0 +1,106 @@
+<div class="container">
+    <form [formGroup]="form" class="d-flex flex-column gap-2 mt-2">
+        <div>
+            <mat-form-field>
+                <mat-label>Date</mat-label>
+                <input matInput formControlName="date" placeholder="Date" type="date">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>Weight</mat-label>
+                <input matInput type="number" formControlName="weight" placeholder="Weight">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Height</mat-label>
+                <input matInput type="number" formControlName="height" placeholder="Height">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Age</mat-label>
+                <input matInput type="number" formControlName="age" placeholder="Age">
+              </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>BMR</mat-label>
+                <input matInput type="number" formControlName="bmr" placeholder="BMR">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>BMI</mat-label>
+                <input matInput type="number" formControlName="bmi" placeholder="BMI">
+              </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>Body Fat %</mat-label>
+                <input matInput type="number" formControlName="body_fat_percentage" placeholder="Body Fat Percentage">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Body Fat Mass</mat-label>
+                <input matInput type="number" formControlName="body_fat_mass" placeholder="Body Fat Mass">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Fat Free Mass</mat-label>
+                <input matInput type="number" formControlName="fat_free_mass" placeholder="Fat Free Mass">
+              </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>Muscle Mass</mat-label>
+                <input matInput type="number" formControlName="muscle_mass" placeholder="Muscle Mass">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Bone Mass</mat-label>
+                <input matInput type="number" formControlName="bone_mass" placeholder="Bone Mass">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Body Water %</mat-label>
+                <input matInput type="number" formControlName="body_water_percentage" placeholder="Body Water Percentage">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Body Water Weight</mat-label>
+                <input matInput type="number" formControlName="body_water_weight" placeholder="Body Water Weight">
+              </mat-form-field>
+        </div>
+        
+        <div>
+            <mat-form-field>
+                <mat-label>Visceral Fat Level</mat-label>
+                <input matInput type="number" formControlName="visceral_fat_level" placeholder="Visceral Fat Level">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Metabolic Age</mat-label>
+                <input matInput type="number" formControlName="metabolic_age" placeholder="Metabolic Age">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Physical Activity Level</mat-label>
+                <input matInput type="number" formControlName="physical_activity_level" placeholder="Physical Activity Level">
+              </mat-form-field>
+          
+              <mat-form-field>
+                <mat-label>Physique Rating</mat-label>
+                <input matInput type="number" formControlName="physique_rating" placeholder="Physique Rating">
+              </mat-form-field>
+            </div> 
+    </form>
+
+    <div class="d-flex justify-content-end gap-2 mt-3">
+      <button mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid">Submit</button>
+      <button mat-raised-button color="secondary" (click)="cancelEditMode()">Back</button>
+    </div>
+
+</div>

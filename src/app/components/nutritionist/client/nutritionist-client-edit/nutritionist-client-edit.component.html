@@ -1,0 +1,101 @@
+<div class="container">
+    @if (!client) {
+      <div class="alert alert-danger text-center">
+        No user details available!
+      </div>
+    } @else {
+        <form [formGroup]="form" class="d-flex flex-column gap-2 w-75">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="first_name" placeholder="First Name" [value]="" />
+                @if (form.get('first_name').invalid && form.get('first_name').touched) {
+                    <mat-error>First Name is required</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="last_name" placeholder="Last Name" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Birth Date</mat-label>
+                <input matInput formControlName="birth_date" placeholder="Birth Date" />
+            </mat-form-field>
+            <div formArrayName="address">
+              <h5>Address</h5>
+              @for (addr of address.controls; let i = $index; track i) {
+                  <div [formGroupName]="i" class="d-flex gap-3 align-items-center">
+                    <mat-form-field>
+                      <mat-label>Country</mat-label>
+                      <input matInput formControlName="country" placeholder="Country" />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>City</mat-label>
+                      <input matInput formControlName="city" placeholder="City" />
+                    </mat-form-field>
+                  </div>
+                  <div [formGroupName]="i" class="d-flex gap-3 align-items-center">
+                    <mat-form-field>
+                      <mat-label>Street</mat-label>
+                      <input matInput formControlName="street" placeholder="Street" />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Street Number</mat-label>
+                      <input matInput formControlName="street_number" placeholder="Street Number" />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Zip Code</mat-label>
+                      <input matInput formControlName="zip_code" placeholder="Zip code" />
+                    </mat-form-field>
+                    
+                    @if (address.controls.length > 1 && i !== 0) {
+                      <mat-icon role="button" (click)="removeAddress(i)" class="cursor-pointer">delete</mat-icon>
+                    }
+                    @if (address.controls[i].valid) {
+                      <mat-icon role="button" (click)="addAddress()" class="cursor-pointer">add</mat-icon>
+                    }
+                  </div>
+                }
+            </div>
+            <div formArrayName="contact_info">
+              <h5>Contact Info</h5>
+                @for (phone of contact_info.controls; let i = $index; track i) {
+                    <div [formGroupName]="i" class="d-flex gap-3 align-items-center">
+                      <mat-form-field>
+                        <mat-label>Type</mat-label>
+                        <mat-select formControlName="phone_type">
+                          <mat-option value="Mobile">Mobile</mat-option>
+                          <mat-option value="Work">Work</mat-option>
+                          <mat-option value="Home">Home</mat-option>
+                        </mat-select>
+                        @if (phone.get("phone_type").invalid && phone.get("phone_type").touched) {
+                          <mat-error class="text-wrap">
+                            Pleace choose a phone type
+                          </mat-error>
+                        }
+                      </mat-form-field>
+                      <mat-form-field>
+                          <mat-label>Phone Number</mat-label>
+                          <input matInput formControlName="phone_number" placeholder="Phone Number" />
+                          @if (phone.get('phone_number').invalid && phone.get('phone_number').touched) {
+                              <mat-error>Phone Number is required</mat-error>
+                          }
+                      </mat-form-field>
+                      
+                      @if (contact_info.controls.length > 1 && i !== 0) {
+                        <mat-icon role="button" (click)="removePhoneNumber(i)" class="cursor-pointer">delete</mat-icon>
+                      }
+                      @if (contact_info.controls[i].valid) {
+                        <mat-icon role="button" (click)="addPhoneNumber()" class="cursor-pointer">add</mat-icon>
+                      }
+                    </div>
+                }
+            </div>
+        </form>
+        <div class="d-flex gap-2">
+            <button mat-raised-button color="primary" (click)="submit(form.value)" [disabled]="form.invalid" > Submit </button>
+            <button mat-raised-button color="warn" (click)="form.reset()"> Reset </button>
+            <button mat-raised-button color="secondary" (click)="goBack()" > Back </button>
+          </div>
+    }
+</div>
+  

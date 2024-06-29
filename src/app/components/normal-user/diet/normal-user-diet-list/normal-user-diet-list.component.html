@@ -1,0 +1,26 @@
+
+@if (dietsExist() === false) {
+    <div class="text-center">
+        <p>No diets found.</p>  
+        <button mat-raised-button color="primary" class="px-4" (click)="dietsExist.set(true)"> Create <mat-icon>add</mat-icon></button>  
+    </div>
+} @else {
+    <h4>My Diets</h4>
+    <mat-tab-group dynamicHeight animationDuration="1000ms" mat-stretch-tabs="false">
+        <mat-tab>
+            <ng-template mat-tab-label>
+              <button mat-icon-button>
+                <mat-icon>add</mat-icon>
+              </button>
+            </ng-template>
+            <app-normal-user-diet-form></app-normal-user-diet-form>
+        </mat-tab>
+        @for(diet of diets(); track diet) {
+            <div class="container d-flex flex-column">
+                <mat-tab label="{{ diet.date }}">
+                    <app-normal-user-diet-details [diet]="diet"></app-normal-user-diet-details>
+                </mat-tab>
+            </div>
+        }
+    </mat-tab-group>
+}

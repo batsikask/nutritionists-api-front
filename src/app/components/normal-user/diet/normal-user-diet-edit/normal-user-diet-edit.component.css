@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+    margin-right: 5px;
+  }
+
+  mat-form-field.date {
+    max-width: 200px;
+  }
+  
+  form > div {
+    display: flex;
+    justify-content: start;
+  }
